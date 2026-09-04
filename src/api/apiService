@@ -1,0 +1,55 @@
+import axios from 'axios';
+
+const API_URL = '/api';
+
+const getAuthHeader = () => {
+  const token = localStorage.getItem('chivucha_jwt_token');
+  return token ? { headers: { 'Authorization': `Bearer ${token}` } } : {};
+};
+
+// 🎯 EXPORT AUTH API MODULE
+export const authAPI = {
+  login: async (username, password) => {
+    const res = await axios.post(`${API_URL}/auth/login`, { username, password });
+    return res.data;
+  }
+};
+// 🎯 EXPORT STOCK API MODULE (Ikosoranye 100% nta syntax error)
+export const stockAPI = {
+  getAllStock: async () => {
+    const res = await axios.get(`${API_URL}/stock/all`);
+    return res.data;
+  },
+  addCategory: async (categoryName) => {
+    const res = await axios.post(`${API_URL}/stock/category/add`, { categoryName }, getAuthHeader());
+    return res.data;
+  },
+  updateCategory: async (catId, categoryName) => {
+    const res = await axios.put(`${API_URL}/stock/category/update/${catId}`, { categoryName }, getAuthHeader());
+    return res.data;
+  },
+  deleteCategory: async (catId) => {
+    const res = await axios.delete(`${API_URL}/stock/category/delete/${catId}`, getAuthHeader());
+    return res.data;
+  },
+  addProduct: async (catId, productForm) => {
+    const res = await axios.post(`${API_URL}/stock/product/add/${catId}`, productForm, getAuthHeader());
+    return res.data;
+  },
+  updateProduct: async (prodId, productForm) => {
+    const res = await axios.put(`${API_URL}/stock/product/update/${prodId}`, productForm, getAuthHeader());
+    return res.data;
+  },
+  deleteProduct: async (prodId) => {
+    const res = await axios.delete(`${API_URL}/stock/product/delete/${prodId}`, getAuthHeader());
+    return res.data;
+  },
+  stackOut: async (productId, quantity) => {
+    const res = await axios.post(`${API_URL}/stock/product/stackout`, { productId, quantity }, getAuthHeader());
+    return res.data;
+  },
+  getReports: async () => {
+    const res = await axios.get(`${API_URL}/reports/logs`);
+    return res.data;
+  }
+};
