@@ -1,0 +1,307 @@
+/* ==========================================================================
+   CHIVUCHA INVESTMENT LTD - MODERN ELITE NAVBAR LAYOUT SUITE
+   ========================================================================== */
+
+:root {
+  --primary-color: #006400;
+  --primary-contrast: #ffffff;
+  --nav-bg: rgba(255, 255, 255, 0.96);
+  --nav-border: rgba(0, 0, 0, 0.06);
+  --nav-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-elite {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 76px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--nav-border);
+  display: flex;
+  align-items: center;
+  z-index: 99999;
+  box-sizing: border-box;
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* 🎯 REAL PERFECT FIXED LOGO FRAMEWORK */
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  z-index: 100001;
+}
+
+.nav-logo-wrapper {
+  width: 46px !important;
+  height: 46px !important;
+  max-width: 46px !important;
+  max-height: 46px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  border: 2px solid var(--primary-color) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #ffffff;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.nav-brand-logo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.brand-title .accent {
+  color: var(--primary-color);
+}
+
+.brand-subtitle {
+  font-size: 10px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* DESKTOP NAV LINKS SYSTEMS */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-panel-header {
+  display: none;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.nav-link-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #334155;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.nav-link-main svg {
+  color: #94a3b8;
+  transition: var(--transition);
+}
+
+/* Active Page Highlight Trigger Link */
+.nav-link:hover .nav-link-main,
+.nav-link.active .nav-link-main {
+  color: var(--primary-color);
+}
+
+.nav-link:hover .nav-link-main svg,
+.nav-link.active .nav-link-main svg {
+  color: var(--primary-color);
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+/* ==========================================================================
+   📱 MOBILE SIDE BAR SLIDE PANEL OVERHAUL (100% PERFECT AS BYTEFLOW)
+   ========================================================================== */
+@media (max-width: 992px) {
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #0f172a;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 100001;
+    transition: var(--transition);
+  }
+
+  /* BURGER TRANSFORMATION AUTOMATION TRIGGER */
+  .menu-open .mobile-toggle {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  /* BACKDROP SCREEN BLUR BLOCKS */
+  .nav-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 99999;
+    transition: var(--transition);
+  }
+
+  .nav-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* PREMIUM SLIDE LINK PANEL INTERFACE */
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 290px;
+    max-width: 85%;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: var(--nav-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 32px 24px;
+    gap: 8px;
+    z-index: 100002;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 24px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-panel-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-close {
+    background: #f1f5f9;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+  }
+
+  .nav-close:hover {
+    background: #fee2e2;
+    color: #ef4444;
+  }
+
+  /* PREMIUM ACCENT DESIGN LINK FOR MOBILE MENU */
+  .nav-link {
+    padding: 14px 16px;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    align-items: flex-start;
+  }
+
+  .nav-link-main {
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 15.5px;
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .nav-link-main svg {
+    color: var(--primary-color);
+    width: 18px;
+    height: 18px;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--light-green-bg);
+  }
+}
+/* ==========================================================================
+   🎯 USER PROFILE AREA STYLES FOR DESKTOP & MOBILE TRANSFORMATION
+   ========================================================================== */
+.nav-desktop-profile-suite { display: flex; align-items: center; gap: 14px; margin-left: 16px; border-left: 1px solid var(--nav-border); padding-left: 16px; }
+.nav-user-badge { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; color: #1e293b; background: var(--light-green-bg); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(0, 100, 0, 0.08); }
+.nav-user-badge svg { color: var(--primary-color); }
+
+.nav-logout-btn-trigger { background: #f1f5f9; border: none; padding: 10px; border-radius: 50%; color: #64748b; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+.nav-logout-btn-trigger:hover { background: #fee2e2; color: #ef4444; }
+
+/* Mobile View Settings Blocks */
+.nav-mobile-user-profile-block { display: none; }
+
+@media (max-width: 992px) {
+  .nav-desktop-profile-suite { display: none; }
+  .nav-mobile-user-profile-block { display: flex; flex-direction: column; gap: 12px; margin-top: auto; padding-top: 24px; border-top: 1px solid rgba(0,0,0,0.05); }
+  .nav-mobile-user-profile-block .nav-user-badge { justify-content: center; border-radius: 8px; }
+  
+  .nav-logout-action-trigger { background: #fef2f2; color: #dc2626; border: 1px solid #fee2e2; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 14.5px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .nav-logout-action-trigger:active { background: #fee2e2; }
+}

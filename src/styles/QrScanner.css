@@ -1,0 +1,203 @@
+/* ==========================================================================
+   CHIVUCHA INVESTMENT LTD - HARDWARE CAMERA QR INTERFACE MODULE
+   ========================================================================== */
+
+.qr-page-fade { 
+  animation: qrViewFadeInSuite 0.25s ease-out; 
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+@keyframes qrViewFadeInSuite { 
+  from { opacity: 0; transform: translateY(6px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+.qr-page-header { 
+  margin-bottom: 24px; 
+}
+
+.qr-page-header h2 { 
+  font-size: 24px; 
+  font-weight: 800; 
+  color: #111111; 
+  margin: 0; 
+  letter-spacing: -0.02em; 
+}
+
+.qr-page-header p { 
+  color: #555555; 
+  font-size: 14.5px; 
+  margin-top: 4px; 
+}
+
+/* SCANNER MAIN CONTROL PANEL CONTAINER */
+.qr-shell-box { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 24px; 
+  max-width: 480px; 
+  margin: 32px auto 0 auto; 
+  background: #ffffff; 
+  padding: 24px; 
+  border-radius: 16px; 
+  border: 1px solid rgba(0, 100, 0, 0.08); 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.02); 
+  box-sizing: border-box; 
+}
+
+/* 🎯 REAL PHONE CAMERA OVERLAY DESIGN FRAME */
+.qr-camera-wrapper-frame { 
+  width: 100%; 
+  border-radius: 12px; 
+  overflow: hidden; 
+  border: 2px dashed #006400; 
+  background: #f4f7f4; 
+  box-sizing: border-box; 
+}
+
+#qr-reader-live-engine { 
+  border: none !important; 
+  width: 100% !important; 
+}
+
+/* Button style for starting/stopping camera node */
+#qr-reader-live-engine button { 
+  background: #006400 !important; 
+  color: white !important; 
+  border: none !important; 
+  padding: 12px 24px !important; 
+  border-radius: 8px !important; 
+  font-weight: 700 !important; 
+  cursor: pointer !important; 
+  margin: 16px auto !important; 
+  display: block !important; 
+  font-size: 14px !important;
+}
+
+#qr-reader-live-engine button:hover {
+  background: #004d00 !important;
+}
+
+#qr-reader-live-engine video { 
+  object-fit: cover !important; 
+  border-radius: 8px !important; 
+  width: 100% !important;
+}
+/* VERIFIED DECRYPTED DISPLAY PANELS */
+.qr-output-panel { 
+  width: 100%; 
+  min-height: 100px; 
+  box-sizing: border-box; 
+}
+
+.qr-data-success-node { 
+  animation: qrDataNodeInUp 0.25s ease-out; 
+}
+
+@keyframes qrDataNodeInUp { 
+  from { opacity: 0; transform: scale(0.98); } 
+  to { opacity: 1; transform: scale(1); } 
+}
+
+.qr-data-success-node h3 { 
+  font-size: 20px; 
+  font-weight: 800; 
+  margin: 12px 0 6px 0; 
+  color: #0f172a; 
+}
+
+.qr-success-pill { 
+  background: #dcfce7; 
+  color: #15803d; 
+  padding: 6px 14px; 
+  border-radius: 20px; 
+  font-size: 11.5px; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 6px; 
+}
+
+.qr-specs-sheet { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px; 
+  margin: 14px 0; 
+  font-size: 14px; 
+  color: #475569; 
+  border-bottom: 1px solid #f1f5f9; 
+  padding-bottom: 14px; 
+}
+
+.qr-specs-sheet strong { 
+  color: #111111; 
+}
+
+.qr-balance-badge { 
+  background: rgba(0, 100, 0, 0.04); 
+  border: 1px solid rgba(0, 100, 0, 0.15); 
+  padding: 18px; 
+  border-radius: 12px; 
+  text-align: center; 
+  margin-top: 16px; 
+}
+
+.qr-balance-badge span { 
+  font-size: 12px; 
+  color: #555555; 
+  font-weight: 600; 
+  text-transform: uppercase; 
+}
+
+.qr-balance-badge h2 { 
+  color: #006400; 
+  margin: 6px 0 0 0; 
+  font-size: 26px; 
+  font-weight: 800; 
+}
+
+/* ERROR & EMPTY STATES PANEL */
+.qr-error-status-box { 
+  background: #fef2f2; 
+  border: 1px solid #fee2e2; 
+  padding: 14px; 
+  border-radius: 8px; 
+  color: #b91c1c; 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  font-size: 13.5px; 
+  font-weight: 500; 
+}
+
+.qr-error-status-box p { 
+  margin: 0; 
+}
+
+.qr-empty-state-box { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px; 
+  text-align: center; 
+  padding: 16px 0; 
+  box-sizing: border-box; 
+}
+
+.qr-empty-text { 
+  font-size: 13.5px; 
+  color: #64748b; 
+  line-height: 1.5; 
+  margin: 0; 
+}
+
+/* MOBILE RESPONSIVE ADAPTATION */
+@media (max-width: 576px) { 
+  .qr-shell-box { padding: 16px; gap: 16px; } 
+  .qr-balance-badge h2 { font-size: 22px; }
+  #qr-reader-live-engine button { padding: 10px 20px !important; font-size: 13px !important; }
+}

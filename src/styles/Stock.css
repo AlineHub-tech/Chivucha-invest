@@ -1,0 +1,42 @@
+.st-page-fade { animation: stFadeIn 0.25s ease-out; width: 100%; box-sizing: border-box; }
+@keyframes stFadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.st-page-header { margin-bottom: 24px; }
+.st-page-header h2 { font-size: 24px; font-weight: 800; margin: 0; letter-spacing: -0.02em; }
+.st-page-header p { color: #555555; font-size: 14px; margin-top: 4px; }
+
+.st-group-card { background: #ffffff; border-radius: 14px; padding: 24px; border: 1px solid rgba(0, 100, 0, 0.05); margin-bottom: 24px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); }
+.st-group-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.st-group-header h3 { font-size: 19px; color: #006400; margin: 0; font-weight: 800; }
+.st-cat-badge { background: rgba(0, 100, 0, 0.06); color: #006400; padding: 4px 10px; border-radius: 30px; font-size: 13px; font-weight: 700; }
+
+.st-table-responsive { width: 100%; }
+.st-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+.st-table th { background: #f4f7f4; padding: 14px 16px; font-weight: 700; border-bottom: 2px solid #e2e8f0; color: #111; }
+.st-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
+
+.st-item-sub-meta { font-size: 12px; color: #64748b; margin-top: 2px; }
+.st-price-valuation { color: #006400; font-weight: 800; font-size: 15px; }
+
+.st-metric-flow { font-weight: 700; font-size: 14px; }
+.st-metric-flow.in { color: #16a34a; }
+.st-metric-flow.out { color: #b45309; }
+.st-time-stamp { display: block; font-size: 11px; color: #94a3b8; margin-top: 2px; }
+
+/* 📱 100% PREMIUM MOBILE TRANSFORM - NO SCROLL */
+@media (max-width: 768px) {
+  .st-group-card { padding: 16px; }
+  .st-table, .st-table thead, .st-table tbody, .st-table th, .st-table td, .st-table tr { display: block; width: 100%; }
+  .st-table thead { display: none; }
+  .st-table tr { background: #f8faf8; margin-bottom: 14px; padding: 14px; border: 1px solid #e2e8f0; border-radius: 12px; }
+  .st-table td { border-bottom: none; padding: 8px 0; display: flex; justify-content: space-between; align-items: flex-start; box-sizing: border-box; }
+  
+  .st-table td:nth-of-type(1)::before { content: "Product Details:"; font-weight: 700; color: #64748b; }
+  .st-table td:nth-of-type(2)::before { content: "Stack In Vol:"; font-weight: 700; color: #64748b; }
+  .st-table td:nth-of-type(3)::before { content: "Stack Out Vol:"; font-weight: 700; color: #64748b; }
+  .st-table td:nth-of-type(4)::before { content: "Total Out Price:"; font-weight: 700; color: #64748b; }
+  
+  .st-table td { text-align: right; white-space: normal; }
+  .st-time-stamp { text-align: right; }
+  .st-item-sub-meta { text-align: right; }
+}

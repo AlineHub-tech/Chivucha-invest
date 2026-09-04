@@ -1,0 +1,149 @@
+.si-page-fade { 
+  animation: siViewFadeIn 0.25s ease-out; 
+  width: 100%; 
+  box-sizing: border-box; 
+}
+
+@keyframes siViewFadeIn { 
+  from { opacity: 0; transform: translateY(6px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+.si-page-header-row { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 28px; 
+  flex-wrap: wrap; 
+  gap: 16px; 
+}
+
+.si-page-header-row > div:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.si-page-header-row .si-btn-primary.green-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+  display: inline-flex;
+}
+
+.si-page-header-row h2 { font-size: 24px; font-weight: 800; color: #111111; margin: 0; }
+.si-page-header-row p { color: #555555; font-size: 14.5px; margin-top: 4px; }
+
+.si-group-card { 
+  background: #ffffff; 
+  border-radius: 14px; 
+  padding: 24px; 
+  border: 1px solid rgba(0, 100, 0, 0.05); 
+  margin-bottom: 28px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02); 
+}
+
+.si-group-header { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-bottom: 18px; 
+  flex-wrap: wrap; 
+  gap: 16px; 
+}
+
+.si-cat-title-area { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.si-cat-title-area h3 { font-size: 19px; font-weight: 800; color: #006400; margin: 0; }
+.si-cat-crud-actions { display: flex; gap: 8px; }
+
+.si-cat-action-btn { 
+  background: none; 
+  border: none; 
+  font-size: 12px; 
+  font-weight: 600; 
+  cursor: pointer; 
+  padding: 4px 8px; 
+  border-radius: 4px; 
+}
+.si-cat-action-btn.edit { color: #2563eb; background: #eff6ff; }
+.si-cat-action-btn.delete { color: #dc2626; background: #fef2f2; }
+.si-btn-primary { 
+  background: #006400; color: #ffffff; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 700; font-size: 13.5px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; 
+}
+.si-btn-primary.green-btn { background: #054005; }
+.si-btn-primary.full-btn { width: 100%; justify-content: center; padding: 14px; }
+
+.si-table-responsive { width: 100%; }
+.si-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+.si-table th { background: #f4f7f4; padding: 14px 16px; font-weight: 700; border-bottom: 2px solid #e2e8f0; }
+.si-table td { padding: 14px 16px; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
+
+.si-qty-count { color: #006400; font-weight: 700; }
+.si-spec-badge { background: #f1f5f9; color: #475569; padding: 3px 8px; border-radius: 4px; font-weight: 600; font-size: 12px; }
+.si-crud-group { display: flex; gap: 6px; }
+.si-btn-icon { border: none; padding: 8px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.si-btn-icon.edit { background: #eff6ff; color: #1d4ed8; }
+.si-btn-icon.delete { background: #fee2e2; color: #b91c1c; }
+
+.si-modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(17, 17, 17, 0.4); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; z-index: 100000; padding: 16px; }
+.si-modal-card { background: #ffffff; width: 100%; max-width: 520px; border-radius: 16px; padding: 28px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+.si-modal-card.select-box { max-width: 400px; }
+.si-modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.si-modal-header h3 { margin: 0; font-size: 18px; font-weight: 800; }
+.si-modal-header button { background: none; border: none; cursor: pointer; color: #64748b; }
+
+.si-modal-form { display: flex; flex-direction: column; gap: 16px; }
+.si-form-group { display: flex; flex-direction: column; gap: 6px; }
+.si-form-group label { font-size: 12.5px; font-weight: 600; color: #334155; text-transform: uppercase; }
+.si-form-group input { padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14.5px; background: #f8faf8; width: 100%; outline: none; }
+.si-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+/* 📱 100% MOBILE CARD TRANSFORMATION - NO SCROLL AT ALL */
+@media (max-width: 768px) { 
+  .si-page-header-row {
+    align-items: flex-start;
+  }
+
+  .si-page-header-row .si-btn-primary.green-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .si-form-grid { grid-template-columns: 1fr; } 
+  .si-group-card { padding: 16px; } 
+  .si-cat-title-area { flex-direction: column; align-items: flex-start; gap: 6px; }
+
+  /* Gukura Table mu miterere itambitse ikajya hasi */
+  .si-table, .si-table thead, .si-table tbody, .si-table th, .si-table td, .si-table tr { 
+    display: block; 
+    width: 100%;
+  }
+  
+  .si-table thead { display: none; } /* Guhisha umutwe wa table */
+  
+  .si-table tr {
+    background: #f8faf8;
+    margin-bottom: 12px;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+  }
+  
+  .si-table td {
+    border-bottom: none;
+    padding: 6px 0;
+    white-space: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13.5px;
+  }
+
+  /* Gushyiraho utujambo tugaragaza buri kintu kuri mobile */
+  .si-table td:nth-of-type(1)::before { content: "Product:"; font-weight: 700; color: #64748b; }
+  .si-table td:nth-of-type(2)::before { content: "Size:"; font-weight: 700; color: #64748b; }
+  .si-table td:nth-of-type(3)::before { content: "Details:"; font-weight: 700; color: #64748b; }
+  .si-table td:nth-of-type(4)::before { content: "Stock:"; font-weight: 700; color: #64748b; }
+  .si-table td:nth-of-type(5)::before { content: "Price:"; font-weight: 700; color: #64748b; }
+  .si-table td:nth-of-type(6)::before { content: "Actions:"; font-weight: 700; color: #64748b; }
+  
+  .si-crud-group { width: auto; justify-content: flex-end; }
+}

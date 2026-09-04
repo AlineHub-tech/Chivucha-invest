@@ -1,0 +1,49 @@
+/* ==========================================================================
+   📱 ELITE PRODUCT CATALOGUE MOBILE TRANSFORMATION (NO SCROLL AT ALL)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .product-top-bar { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .add-product-cta-btn { width: 100%; justify-content: center; }
+  
+  .catalog-data-grid, 
+  .catalog-data-grid thead, 
+  .catalog-data-grid tbody, 
+  .catalog-data-grid th, 
+  .catalog-data-grid td, 
+  .catalog-data-grid tr { 
+    display: block; 
+    width: 100%; 
+  }
+  
+  .catalog-data-grid thead { display: none; } /* Guhisha umutwe wa table */
+  
+  .catalog-data-grid tr { 
+    background: #f8faf8; 
+    margin-bottom: 14px; 
+    padding: 14px; 
+    border: 1px solid #e2e8f0; 
+    border-radius: 12px; 
+  }
+  
+  .catalog-data-grid td { 
+    border-bottom: none; 
+    padding: 8px 0; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 13.5px; 
+    text-align: right;
+    white-space: normal;
+  }
+  
+  /* Gushyiraho utujambo tugaragaza buri kintu neza kuri mobile */
+  .catalog-data-grid td:nth-of-type(1)::before { content: "Product File:"; font-weight: 700; color: #64748b; }
+  .catalog-data-grid td:nth-of-type(2)::before { content: "Sector:"; font-weight: 700; color: #64748b; }
+  .catalog-data-grid td:nth-of-type(3)::before { content: "Pack Size:"; font-weight: 700; color: #64748b; }
+  .catalog-data-grid td:nth-of-type(4)::before { content: "Warehouse Vol:"; font-weight: 700; color: #64748b; }
+  .catalog-data-grid td:nth-of-type(5)::before { content: "Unit Value:"; font-weight: 700; color: #64748b; }
+  .catalog-data-grid td:nth-of-type(6)::before { content: "Actions Suite:"; font-weight: 700; color: #64748b; }
+  
+  .catalog-action-btns { justify-content: flex-end; width: auto; }
+  .text-right-aligned { text-align: right; }
+}

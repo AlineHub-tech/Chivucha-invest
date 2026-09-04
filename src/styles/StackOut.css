@@ -1,0 +1,176 @@
+/* ==========================================================================
+   CHIVUCHA INVESTMENT LTD - STACK OUT COMPONENT SCOPED STYLES
+   ========================================================================== */
+
+.so-page-fade {
+  animation: soViewFadeIn 0.25s ease-out;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@keyframes soViewFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.so-page-header {
+  margin-bottom: 24px;
+}
+
+.so-page-header h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111111;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.so-page-header p {
+  color: #555555;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* SPLIT PANEL GRID SETUP */
+.so-split-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+}
+
+.so-panel-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 24px;
+  border: 1px solid rgba(0, 100, 0, 0.05);
+  box-sizing: border-box;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.so-panel-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  color: #111111;
+}
+
+/* OUTFLOW PROCESSING FORM CONTROLS */
+.so-node-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.so-form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.so-form-element label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.so-form-element input, 
+.so-form-element select {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14.5px;
+  background: #f8faf8;
+  color: #111111;
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.so-form-element input:focus, 
+.so-form-element select:focus {
+  border-color: #006400;
+  background: #ffffff;
+}
+
+/* TRANSACTION LIVE VALUATION CARD */
+.so-preview-box {
+  background: rgba(0, 100, 0, 0.04);
+  border: 1px solid rgba(0, 100, 0, 0.1);
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+}
+
+.so-preview-box p {
+  margin: 0;
+  color: #475569;
+}
+
+.so-submit-btn {
+  background: #006400;
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.so-submit-btn:hover {
+  background: #004d00;
+}
+
+/* MONITOR TABLE REGISTRY */
+.so-table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.so-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+}
+
+.so-table th {
+  background: #f4f7f4;
+  padding: 14px 16px;
+  font-weight: 700;
+  border-bottom: 2px solid #e2e8f0;
+  color: #111111;
+}
+
+.so-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+  color: #334155;
+}
+
+/* SCREEN Breakdowns overrides */
+@media (max-width: 992px) {
+  .so-split-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .so-panel-card {
+    padding: 18px;
+  }
+  .so-table th, .so-table td {
+    padding: 12px 10px;
+    font-size: 13px;
+  }
+}

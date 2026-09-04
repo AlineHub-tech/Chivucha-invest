@@ -1,0 +1,24 @@
+.lg-page-wrapper { background-color: #f6f9f6; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
+.lg-card { background: #ffffff; border: 1px solid rgba(0, 100, 0, 0.08); border-radius: 16px; padding: 32px; width: 100%; max-width: 420px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); box-sizing: border-box; }
+
+.lg-card-header { text-align: center; margin-bottom: 24px; }
+.lg-logo-icon { width: 56px; height: 56px; background: rgba(0, 100, 0, 0.05); color: #006400; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px auto; }
+.lg-card-header h3 { font-size: 22px; font-weight: 800; color: #111; margin: 0; }
+.lg-card-header p { font-size: 13.5px; color: #555; margin-top: 6px; line-height: 1.4; }
+
+.lg-error-message { background: #fef2f2; border: 1px solid #fee2e2; padding: 12px; border-radius: 8px; color: #b91c1c; font-size: 13px; text-align: center; margin-bottom: 16px; font-weight: 500; }
+
+.lg-form-suite { display: flex; flex-direction: column; gap: 16px; }
+.lg-form-group { display: flex; flex-direction: column; gap: 6px; }
+.lg-form-group label { font-size: 12.5px; font-weight: 600; color: #334155; text-transform: uppercase; }
+
+.lg-input-wrapper { display: flex; align-items: center; background: #f8faf8; border: 1px solid #cbd5e1; border-radius: 8px; padding: 0 12px; gap: 10px; }
+.lg-input-wrapper svg { color: #64748b; }
+.lg-input-wrapper input { border: none; background: none; padding: 12px 0; outline: none; font-size: 14.5px; width: 100%; color: #111; }
+.lg-input-wrapper:focus-within { border-color: #006400; background: #fff; }
+
+.lg-submit-btn { background: #006400; color: white; border: none; padding: 14px; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; width: 100%; transition: background 0.2s; }
+.lg-submit-btn:hover { background: #004d00; }
+.lg-footer-notice { text-align: center; margin-top: 24px; font-size: 11px; color: #94a3b8; }
+
+@media (max-width: 480px) { .lg-card { padding: 24px 16px; } }
