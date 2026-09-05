@@ -3,14 +3,18 @@ import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { Menu, X, LayoutDashboard, PlusCircle, MinusCircle, FileText, QrCode, Layers, LogOut, User } from 'lucide-react';
 import LogoImg from '../assets/logo.png';
 import '../styles/Navbar.css';
+import { readSession } from '../api/apiService';
+
+const deleteCookie = (name) => {
+  document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
+};
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const token = localStorage.getItem('chivucha_jwt_token');
-
-  // Dynamic state isoma user session ava kuri Login form platform
-  const loggedUser = localStorage.getItem('chivucha_logged_user') || 'Guest';
+  const session = readSession();
+  const token = session?.token || '';
+  const loggedUser = session?.username || 'Guest';
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', isOpen);
@@ -24,9 +28,9 @@ export default function Navbar() {
   // ENGINE CLEAR CLEARANCE SESSION
   const handleSystemLogout = () => {
     if (window.confirm("Are you sure you want to log out of Chivucha Terminal Network?")) {
-      localStorage.removeItem('chivucha_jwt_token');
-      localStorage.removeItem('chivucha_user_role');
-      localStorage.removeItem('chivucha_logged_user');
+      deleteCookie('chivucha_jwt_token');
+      deleteCookie('chivucha_user');
+      deleteCookie('chivucha_role');
       navigate('/login');
       window.location.reload();
     }
