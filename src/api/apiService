@@ -1,20 +1,49 @@
 import axios from 'axios';
 
 const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
+axios.defaults.withCredentials = true;
 
-const getAuthHeader = () => {
-  const token = localStorage.getItem('chivucha_jwt_token');
-  return token ? { headers: { 'Authorization': `Bearer ${token}` } } : {};
+const getCookie = (name) => {
+  if (typeof document === 'undefined') return '';
+  const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+  return match ? decodeURIComponent(match[1]) : '';
 };
 
-// 🎯 EXPORT AUTH API MODULE
-export const authAPI = {
-  login: async (username, password) => {
-    const res = await axios.post(`${API_URL}/auth/login`, { username, password });
-    return res.data;
+const resolveToken = () => getCookie('chivucha_jwt_token') || getCookie('chivucha_token');
+
+export const readSession = () => {
+  const token = resolveToken();
+  if (!token) return null;
+
+  try {
+    const payload = token.split('.')[1];
+    if (!payload) return null;
+    const decoded = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
+    return {
+      token,
+      username: decoded.username || getCookie('chivucha_user') || 'Guest',
+      role: decoded.role || getCookie('chivucha_role') || 'GUEST'
+    };
+  } catch (error) {
+    return null;
   }
 };
-// 🎯 EXPORT STOCK API MODULE (Ikosoranye 100% nta syntax error)
+
+const getAuthHeader = () => {
+  const token = resolveToken();
+  return token ? { headers: { Authorization: `Bearer ${token}` } } : {};
+};
+
+export const authAPI = {
+  login: async (username, password) => {
+    const res = await axios.post(`${API_URL}/auth/login`, { username, password }, { withCredentials: true });
+    return res.data;
+  },
+  logout: async () => {
+    await axios.post(`${API_URL}/auth/logout`, {}, { withCredentials: true });
+  }
+};
+
 export const stockAPI = {
   getAllStock: async () => {
     const res = await axios.get(`${API_URL}/stock/all`);
