@@ -9,8 +9,9 @@ import Reports from './pages/Reports';
 import QrScanner from './pages/QrScanner';
 import Footer from './components/Footer';
 import Login from './pages/Login';
+import { readSession } from './api/apiService';
 
-const isAuthenticated = () => Boolean(localStorage.getItem('chivucha_jwt_token'));
+const isAuthenticated = () => Boolean(readSession());
 
 function ProtectedRoute({ children }) {
   return isAuthenticated() ? children : <Navigate to="/login" replace />;
