@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PlusCircle, Edit, Trash2, X, Save, FolderPlus } from 'lucide-react';
-import { stockAPI } from '../api/apiService';
+import { stockAPI } from '../api/stockApi';
 import '../styles/StackIn.css';
 
 export default function StackIn() {
@@ -141,7 +141,7 @@ export default function StackIn() {
   };
   if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700', color: '#006400' }}>Streaming database records from MongoDB Atlas...</div>;
 
-  return (
+      return (
     <div className="si-page-fade">
       <div className="si-page-header-row">
         <div>

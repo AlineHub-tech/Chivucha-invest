@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { stockAPI } from '../api/apiService';
+import { stockAPI } from '../api/stockApi'; // Swapped to look up our secure production axios instances
 import '../styles/Stock.css';
 
 export default function Stock() {
@@ -48,7 +48,6 @@ export default function Stock() {
     return { displayedIn, lastInDate, totalOut, lastOutDate, totalOutPrice };
   };
   if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700' }}>Streaming stock ledger profiles...</div>;
-
   return (
     <div className="st-page-fade">
       <div className="st-page-header">
@@ -83,19 +82,19 @@ export default function Stock() {
                       <tr key={p._id}>
                         <td>
                           <strong>{p.name}</strong>
-                            <div className="st-item-sub-meta">Size: {p.size} | Unit: {(Number(p.price) || 0).toLocaleString()} RWF</div>
+                          <div className="st-item-sub-meta">Size: {p.size} | Unit: {(Number(p.price) || 0).toLocaleString()} RWF</div>
                         </td>
                         <td>
-                            <div className="st-metric-flow in">+{(Number(metrics.displayedIn) || 0).toLocaleString()} Pcs</div>
+                          <div className="st-metric-flow in">+{(Number(metrics.displayedIn) || 0).toLocaleString()} Pcs</div>
                           <small className="st-time-stamp">Date: {metrics.lastInDate}</small>
                         </td>
                         <td>
-                            <div className="st-metric-flow out">-{(Number(metrics.totalOut) || 0).toLocaleString()} Pcs</div>
+                          <div className="st-metric-flow out">-{(Number(metrics.totalOut) || 0).toLocaleString()} Pcs</div>
                           <small className="st-time-stamp">Date: {metrics.lastOutDate}</small>
                         </td>
                         <td>
                           <strong className="st-price-valuation">
-                              {(Number(metrics.totalOutPrice) || 0).toLocaleString()} RWF
+                            {(Number(metrics.totalOutPrice) || 0).toLocaleString()} RWF
                           </strong>
                           <div className="st-item-sub-meta">Based on quantities</div>
                         </td>

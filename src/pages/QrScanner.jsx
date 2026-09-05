@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 import { QrCode, ShieldCheck, CameraOff } from 'lucide-react';
-import { stockAPI } from '../api/apiService';
+import { stockAPI } from '../api/stockApi'; // Swapped to look up our secure production axios instances
 import '../styles/QrScanner.css';
 
 export default function QrScanner() {
@@ -76,7 +76,6 @@ export default function QrScanner() {
   }, [stock]);
 
   if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700' }}>Initializing camera decoder...</div>;
-
   return (
     <div className="qr-page-fade">
       <div className="qr-page-header">
@@ -108,13 +107,13 @@ export default function QrScanner() {
               <div className="qr-specs-sheet">
                 <p>Sector Category: <strong>{scannedItem.catName}</strong></p>
                 <p>Pack Metric Volume: <strong>{scannedItem.size}</strong></p>
-                <p>Unit Valuation Price: <strong>{scannedItem.price.toLocaleString()} RWF</strong></p>
+                <p>Unit Valuation Price: <strong>{(Number(scannedItem.price) || 0).toLocaleString()} RWF</strong></p>
                 <p>Attributes Context: <strong>{scannedItem.details || 'N/A'}</strong></p>
               </div>
 
               <div className="qr-balance-badge">
                 <span>Real-Time Balance Volume</span>
-                <h2>{scannedItem.qty.toLocaleString()} Units Left</h2>
+                <h2>{(Number(scannedItem.qty) || 0).toLocaleString()} Units Left</h2>
               </div>
             </div>
           ) : (

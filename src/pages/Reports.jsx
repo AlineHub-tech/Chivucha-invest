@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, ArrowDownRight, Download } from 'lucide-react';
-import { stockAPI } from '../api/apiService';
+import { reportAPI } from '../api/reportApi'; // Updated to point directly to our connected reportApi file
 import '../styles/Reports.css';
 
 export default function Reports() {
   const [logs, setLogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 🎯 FETCH REPORT LOGS LIVE FROM MONGO DB ON PAGE LOAD
+  // 🎯 REAL-TIME CLOUD PIPELINE DATA STREAM INJECTION
   useEffect(() => {
     const loadDatabaseLogs = async () => {
       try {
-        const reportData = await stockAPI.getReports();
+        const reportData = await reportAPI.getReports();
         setLogs(Array.isArray(reportData) ? reportData : []);
       } catch (err) {
         console.error('Database tracking link failed:', err);
@@ -24,7 +24,7 @@ export default function Reports() {
     loadDatabaseLogs();
   }, []);
 
-  // 🎯 PDF EXPORT ENGINE: Gukora print-to-pdf isobanutse neza
+  // 🎯 SMART PRINT TO A4 DOCUMENT LAYOUT
   const handleDownloadPDF = () => {
     window.print();
   };
@@ -32,16 +32,17 @@ export default function Reports() {
   if (loading) {
     return (
       <div style={{ padding: '40px', textAlign: 'center', color: 'var(--primary-color)', fontWeight: '700' }}>
-        Streaming transaction history logs from Chivucha MongoDB Node...
+        Streaming chronological transaction history logs from Chivucha MongoDB Cloud Node...
       </div>
     );
   }
+
   return (
     <div className="rep-page-fade">
       <div className="rep-page-header-row">
         <div>
           <h2>Ecosystem Audits & Transaction Reports</h2>
-          <p>Comprehensive logging streaming of all stack operations dynamic metrics.</p>
+          <p>Comprehensive logging streaming of all warehouse operations dynamic metrics.</p>
         </div>
         <button className="rep-btn-download" onClick={handleDownloadPDF} disabled={logs.length === 0}>
           <Download size={16} /> Download PDF Report
@@ -52,7 +53,7 @@ export default function Reports() {
         <div className="rep-print-header">
           <h3>CHIVUCHA INVESTMENT LTD</h3>
           <p>Official Inventory Operations & Audit Report Ledger</p>
-          <small>Generated on: {new Date().toLocaleString('en-RW')}</small>
+          <small>Generated on: {new Date().toLocaleString('en-RW', { timeZone: 'Africa/Kigali' })}</small>
         </div>
 
         <h4>System Logs Balance Stream</h4>
@@ -71,26 +72,33 @@ export default function Reports() {
             <tbody>
               {logs.length === 0 ? (
                 <tr>
-                  <td colSpan="6" style={{ textAlign: 'center', color: '#888', padding: '24px' }}>
-                    No system transaction logs verified inside the database stream yet.
+                  <td colSpan="6" style={{ textAlign: 'center', color: '#64748b', padding: '32px' }}>
+                    No verified system transaction records present inside the database stream yet.
                   </td>
                 </tr>
               ) : (
-                logs.map((log) => (
-                  <tr key={log._id || log.id}>
-                    <td className="rep-td-date">{log.date}</td>
-                    <td>
-                      <span className={`rep-pill ${log.type === 'STACK IN' ? 'inflow' : 'outflow'}`}>
-                        {log.type === 'STACK IN' ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
-                        {log.type}
-                      </span>
-                    </td>
-                    <td><strong>{log.product}</strong></td>
-                    <td>{log.qty.toLocaleString()} Pcs</td>
-                    <td>{log.price.toLocaleString()} RWF</td>
-                    <td><strong>{log.total.toLocaleString()} RWF</strong></td>
-                  </tr>
-                ))
+                logs.map((log) => {
+                  // Explicit mathematical coercion guards before parsing to localized strings
+                  const safeQty = Number(log.qty) || 0;
+                  const safePrice = Number(log.price) || 0;
+                  const safeTotal = Number(log.total) || 0;
+
+                  return (
+                    <tr key={log._id}>
+                      <td className="rep-td-date">{log.date}</td>
+                      <td>
+                        <span className={`rep-pill ${log.type === 'STACK IN' ? 'inflow' : 'outflow'}`}>
+                          {log.type === 'STACK IN' ? <ArrowUpRight size={12} /> : <ArrowDownRight size={12} />}
+                          {log.type}
+                        </span>
+                      </td>
+                      <td><strong>{log.product}</strong></td>
+                      <td>{safeQty.toLocaleString()} Pcs</td>
+                      <td>{safePrice.toLocaleString()} RWF</td>
+                      <td><strong>{safeTotal.toLocaleString()} RWF</strong></td>
+                    </tr>
+                  );
+                })
               )}
             </tbody>
           </table>

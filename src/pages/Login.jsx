@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ShieldCheck, Lock, User } from 'lucide-react';
-import { authAPI } from '../api/apiService';
+import { authAPI } from '../api/authApi'; // Updated to point directly to our modular authApi file
 import '../styles/Login.css';
 
 export default function Login() {
@@ -11,8 +11,10 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // 🛡️ RECOVERY GATEKEEPER: Instantly forwards authenticated sessions straight to the dashboard
   useEffect(() => {
-    if (localStorage.getItem('chivucha_jwt_token')) {
+    const token = localStorage.getItem('chivucha_jwt_token');
+    if (token) {
       navigate('/dashboard', { replace: true });
     }
   }, [navigate]);
@@ -23,13 +25,13 @@ export default function Login() {
     setLoading(true);
 
     try {
-      // 🎯 CONNECTED AUTH STREAM TO EXPRESS BACKEND API
+      // Dispatch payload to Render backend API cluster
       const data = await authAPI.login(username, password);
-      
-      // Kubika secure clearance parameters muri session storage ya duka
+
+      // Securely lock transactional authorization parameters inside localStorage
       localStorage.setItem('chivucha_jwt_token', data.token);
-      localStorage.setItem('chivucha_user_role', data.role);
       localStorage.setItem('chivucha_logged_user', data.username);
+      localStorage.setItem('chivucha_user_role', data.role); // Sets ADMIN or GUEST layout access profiles
 
       alert(`Clearance approved. Welcome back ${data.username}!`);
       navigate('/dashboard');
@@ -39,6 +41,7 @@ export default function Login() {
       setLoading(false);
     }
   };
+
   return (
     <div className="lg-page-wrapper">
       <div className="lg-card">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { stockAPI } from '../api/apiService';
+import { stockAPI } from '../api/stockApi'; // Swapped to look up our secure Render axios instance
 import '../styles/StackOut.css';
 
 export default function StackOut() {
@@ -51,7 +51,6 @@ export default function StackOut() {
     }
   };
   if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700' }}>Streaming database metrics...</div>;
-
   return (
     <div className="so-page-fade">
       <div className="so-page-header">
@@ -82,8 +81,8 @@ export default function StackOut() {
 
             {currentSelectedProduct && (
               <div className="so-preview-box">
-                <p>Unit Price: <strong>{currentSelectedProduct.price.toLocaleString()} RWF</strong></p>
-                <p>Total Dispatch Net Valuation: <strong style={{ color: '#006400' }}>{(currentSelectedProduct.price * form.quantity).toLocaleString()} RWF</strong></p>
+                <p>Unit Price: <strong>{(Number(currentSelectedProduct.price) || 0).toLocaleString()} RWF</strong></p>
+                <p>Total Dispatch Net Valuation: <strong style={{ color: '#006400' }}>{((Number(currentSelectedProduct.price) || 0) * form.quantity).toLocaleString()} RWF</strong></p>
               </div>
             )}
 
@@ -101,7 +100,7 @@ export default function StackOut() {
                   <tr key={idx}>
                     <td>{p.name}</td>
                     <td>{p.size}</td>
-                    <td><strong style={{ color: p.qty < 50 ? '#b91c1c' : '#15803d' }}>{p.qty.toLocaleString()} units</strong></td>
+                    <td><strong style={{ color: p.qty < 50 ? '#b91c1c' : '#15803d' }}>{(Number(p.qty) || 0).toLocaleString()} units</strong></td>
                   </tr>
                 ))}
               </tbody>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Package, Layers, Activity, HelpCircle, CheckCircle2, TrendingUp } from 'lucide-react';
-import { stockAPI } from '../api/apiService';
+import { stockAPI } from '../api/stockApi'; // Swapped to point directly to our connected stockApi
 import '../styles/Dashboard.css';
 
 export default function Dashboard() {
@@ -9,6 +9,7 @@ export default function Dashboard() {
   const [time, setTime] = useState(new Date().toLocaleString('en-RW', { timeZone: 'Africa/Kigali' }));
   const [loading, setLoading] = useState(true);
 
+  // 🎯 REAL-TIME CLOUD PIPELINE SYNCHRONIZATION VIA AXIOS
   useEffect(() => {
     const fetchEcosystemData = async () => {
       try {
@@ -28,6 +29,7 @@ export default function Dashboard() {
 
     fetchEcosystemData();
 
+    // Active Kigali live ticking clock engine running down to the second on viewports
     const timer = setInterval(() => {
       setTime(new Date().toLocaleString('en-RW', { timeZone: 'Africa/Kigali' }));
     }, 1000);
@@ -38,6 +40,7 @@ export default function Dashboard() {
   const safeStock = Array.isArray(stock) ? stock : [];
   const safeLogs = Array.isArray(logs) ? logs : [];
 
+  // 🔢 MATHEMATICAL COERCION GUARDS: Calculates core aggregates live via database profiles
   const totalVolume = safeStock.reduce((s, c) => s + (Array.isArray(c.products) ? c.products.reduce((sp, p) => sp + (Number(p.qty) || 0), 0) : 0), 0);
   const totalValuation = safeStock.reduce((s, c) => s + (Array.isArray(c.products) ? c.products.reduce((sp, p) => sp + ((Number(p.qty) || 0) * (Number(p.price) || 0)), 0) : 0), 0);
 
@@ -47,11 +50,12 @@ export default function Dashboard() {
 
   if (loading) {
     return (
-      <div style={{ padding: '40px', textAlignment: 'center', color: 'var(--primary-color)', fontWeight: '700' }}>
-        Streaming secure ledger links from Chivucha MongoDB Node...
+      <div style={{ padding: '40px', textAlign: 'center', color: 'var(--primary-color)', fontWeight: '700' }}>
+        Streaming secure ledger links from Chivucha MongoDB Cloud Node...
       </div>
     );
   }
+
   return (
     <div className="db-page-fade">
       {/* 1. CLOCK & HEADLINE METRICS ROW */}
@@ -98,18 +102,18 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* 3. DYNAMIC BAR GRAPH CHART CONNECTED TO EXPRESS */}
+      {/* 3. DYNAMIC BAR GRAPH CHART CONNECTED TO MONGO DB ATLAS */}
       <div className="db-panel-card chart-container-block">
         <div className="db-panel-card-header">
           <h4>Category Stock Level Distribution Chart</h4>
           <span className="db-chart-legend">Max capacity capped at 1,500 Pcs</span>
         </div>
         <div className="db-visual-chart-simulation">
-          {stock.map((cat, i) => {
-            const catTotal = cat.products ? cat.products.reduce((s, p) => s + p.qty, 0) : 0;
+          {stock.map((cat) => {
+            const catTotal = cat.products ? cat.products.reduce((s, p) => s + (Number(p.qty) || 0), 0) : 0;
             const barPercentage = Math.min(100, (catTotal / 1500) * 100);
             return (
-              <div key={i} className="db-chart-bar-row">
+              <div key={cat._id} className="db-chart-bar-row">
                 <span className="db-chart-label">{cat.categoryName}</span>
                 <div className="db-chart-track">
                   <div className="db-chart-fill" style={{ width: `${barPercentage}%` }}></div>
@@ -158,7 +162,6 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
