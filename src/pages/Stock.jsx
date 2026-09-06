@@ -67,8 +67,8 @@ export default function Stock() {
               <thead>
                 <tr>
                   <th>Product Details</th>
-                  <th>Stack In (Loaded)</th>
-                  <th>Stack Out (Dispatched)</th>
+                  <th>Stock In (Loaded)</th>
+                  <th>Stock Out (Dispatched)</th>
                   <th>Total Out Price</th>
                 </tr>
               </thead>
