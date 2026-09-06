@@ -29,11 +29,68 @@ body {
   width: 100%;
 }
 
+#root,
+.bf-dashboard-app {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.bf-dashboard-app {
+  display: flex;
+  flex-direction: column;
+}
+
+.bf-main-content {
+  flex: 1 0 auto;
+  width: 100%;
+  min-width: 0;
+  padding: 108px 0 40px;
+}
+
+.bf-content-container {
+  width: min(100%, 1240px);
+  min-width: 0;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 .container {
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .bf-main-content {
+    padding-top: 96px;
+    padding-bottom: 28px;
+  }
+
+  .bf-content-container,
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bf-main-content {
+    padding-top: 88px;
+  }
 }
 
 /* Scrollbar layout */
