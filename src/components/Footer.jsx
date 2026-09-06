@@ -32,13 +32,13 @@ const Footer = () => {
                 <LayoutDashboard size={14} /> <span>Dashboard</span>
               </NavLink>
               <NavLink to="/stackin" className="ch-footer-link">
-                <PlusCircle size={14} /> <span>Stack In / CRUD</span>
+                <PlusCircle size={14} /> <span>StockIn</span>
               </NavLink>
               <NavLink to="/stackout" className="ch-footer-link">
-                <MinusCircle size={14} /> <span>Stack Out</span>
+                <MinusCircle size={14} /> <span>Stock Out</span>
               </NavLink>
               <NavLink to="/stock" className="ch-footer-link">
-                <Layers size={14} /> <span>Stock Ledger</span>
+                <Layers size={14} /> <span>StockLedger</span>
               </NavLink>
               <NavLink to="/reports" className="ch-footer-link">
                 <FileText size={14} /> <span>Reports</span>
