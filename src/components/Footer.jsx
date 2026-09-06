@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { LayoutDashboard, PlusCircle, MinusCircle, Layers, FileText, QrCode } from 'lucide-react';
+import { LayoutDashboard, PlusCircle, MinusCircle, Layers, FileText, QrCode, ShieldCheck, Circle } from 'lucide-react';
 import LogoImg from '../assets/logo.png';
 import '../styles/Footer.css';
 
@@ -20,14 +20,13 @@ const Footer = () => {
               <img src={LogoImg} alt="Chivucha Logo" className="ch-footer-logo" />
               <span className="ch-footer-title">Chivucha <span className="green-accent">Ltd</span></span>
             </div>
-            <p className="ch-footer-text">
-              A legally registered enterprise providing end-to-end operational software infrastructure. We engineer robust technology frameworks that streamline internal business workflows and scale market credibility.
-            </p>
+            <p className="ch-footer-text">A focused inventory command system for tracking stock, operations, and audit history in one clear workspace.</p>
+            <div className="ch-footer-status"><span className="ch-footer-status-dot"></span><span>System operational</span><span className="ch-footer-status-divider"></span><ShieldCheck size={14} /><span>Protected workspace</span></div>
           </div>
 
           {/* Column 2: Quick Links Directory Links */}
           <div className="ch-footer-col links-col">
-            <h4 className="ch-footer-heading">Quick Links</h4>
+            <h4 className="ch-footer-heading">Workspace modules</h4>
             <div className="ch-footer-links-grid">
               <NavLink to="/dashboard" className="ch-footer-link">
                 <LayoutDashboard size={14} /> <span>Dashboard</span>
@@ -66,9 +65,9 @@ const Footer = () => {
           </div>
           
           <div className="ch-footer-credits-area">
-            <span className="ch-node-badge">Terminal: Kigali Node #2</span>
+            <span className="ch-node-badge"><Circle size={8} fill="currentColor" /> Kigali Node #2</span>
             <span className="ch-credit-pill">
-              Engineered by <a href="https://vercel.app" target="_blank" rel="noreferrer" className="ch-bf-credit-link">ByteFlow Ltd</a>
+              Engineered by <a href="https://byte-flow-ltd.vercel.app/" target="_blank" rel="noreferrer" className="ch-bf-credit-link">ByteFlow Ltd</a>
             </span>
           </div>
         </div>
