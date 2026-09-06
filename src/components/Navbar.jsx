@@ -33,7 +33,7 @@ export default function Navbar() {
 
   // ENGINE CLEAR CLEARANCE SESSION
   const handleSystemLogout = () => {
-    if (window.confirm("Are you sure you want to log out of Chivucha Terminal Network?")) {
+    if (window.confirm("Are you sure you want to sign out of Chivucha Inventory?")) {
       deleteCookie('chivucha_jwt_token');
       deleteCookie('chivucha_token');
       deleteCookie('chivucha_user');
@@ -100,7 +100,7 @@ export default function Navbar() {
         {/* 🎯 DESKTOP ONLY PROFILE AREA METRICS */}
         <div className="nav-desktop-profile-suite desktop-only">
           <div className="nav-user-badge"><User size={16} /> <span>{loggedUser}</span></div>
-          <button className="nav-logout-btn-trigger" onClick={handleSystemLogout} title="Sign Out NetworkNode"><LogOut size={18} /></button>
+          <button className="nav-logout-btn-trigger" onClick={handleSystemLogout} title="Sign out"><LogOut size={18} /></button>
         </div>
 
         <button type="button" className="mobile-toggle" onClick={() => setIsOpen(!isOpen)}>
