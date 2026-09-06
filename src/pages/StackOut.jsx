@@ -60,7 +60,7 @@ export default function StackOut() {
 
       <div className="so-split-grid">
         <div className="so-panel-card">
-          <h4>Process Stack Out Order</h4>
+          <h4>Process Stock Out Order</h4>
           <form onSubmit={handleProcessStackOut} className="so-node-form">
             <div className="so-form-element">
               <label>Select Tracked Target Product</label>
