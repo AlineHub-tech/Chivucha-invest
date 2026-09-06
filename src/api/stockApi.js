@@ -3,7 +3,23 @@ import axios from 'axios';
 const API_BASE = import.meta.env.VITE_API_BASE || '/api';
 const API_URL = `${API_BASE.replace(/\/$/, '')}/stock`;
 
-const authConfig = () => ({ withCredentials: true });
+const getAuthToken = () => {
+  if (typeof window === 'undefined') return '';
+
+  const storedToken = localStorage.getItem('chivucha_jwt_token');
+  if (storedToken) return storedToken;
+
+  const cookieMatch = document.cookie.match(/(?:^|; )chivucha_token=([^;]*)/);
+  return cookieMatch ? decodeURIComponent(cookieMatch[1]) : '';
+};
+
+const authConfig = () => {
+  const token = getAuthToken();
+  return {
+    withCredentials: true,
+    headers: token ? { Authorization: `Bearer ${token}` } : {}
+  };
+};
 
 export const stockAPI = {
   getAllStock: async () => {
