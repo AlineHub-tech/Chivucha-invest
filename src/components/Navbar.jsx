@@ -9,6 +9,12 @@ const deleteCookie = (name) => {
   document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
 };
 
+const clearStoredSession = () => {
+  localStorage.removeItem('chivucha_jwt_token');
+  localStorage.removeItem('chivucha_logged_user');
+  localStorage.removeItem('chivucha_user_role');
+};
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
@@ -29,8 +35,10 @@ export default function Navbar() {
   const handleSystemLogout = () => {
     if (window.confirm("Are you sure you want to log out of Chivucha Terminal Network?")) {
       deleteCookie('chivucha_jwt_token');
+      deleteCookie('chivucha_token');
       deleteCookie('chivucha_user');
       deleteCookie('chivucha_role');
+      clearStoredSession();
       navigate('/login');
       window.location.reload();
     }
