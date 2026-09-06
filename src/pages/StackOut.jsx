@@ -35,7 +35,7 @@ export default function StackOut() {
     if (!targetProdId || !currentSelectedProduct) return;
 
     if (currentSelectedProduct.qty < form.quantity) {
-      alert("Operational Error: Insufficient stock capacity volume in warehouse nodes!");
+      alert("Insufficient stock available for this dispatch.");
       return;
     }
 
@@ -50,12 +50,12 @@ export default function StackOut() {
       alert(err.response?.data?.message || "Stack-Out pipeline routing execution fault.");
     }
   };
-  if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700' }}>Streaming database metrics...</div>;
+  if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700' }}>Loading Chivucha stock-out workspace...</div>;
   return (
     <div className="so-page-fade">
       <div className="so-page-header">
-        <h2>Connected Stack-Out Processing Node</h2>
-        <p>De-allocate warehouse metrics parameters directly into automated activity ledgers synced with MongoDB.</p>
+        <h2>Stock-Out Management</h2>
+        <p>Record products leaving the warehouse and keep quantities accurate.</p>
       </div>
 
       <div className="so-split-grid">
@@ -91,7 +91,7 @@ export default function StackOut() {
         </div>
 
         <div className="so-panel-card">
-          <h4>Live Inventory Matrix Quick-Look</h4>
+          <h4>Current Inventory Overview</h4>
           <div className="so-table-responsive">
             <table className="so-table">
               <thead><tr><th>Tracked Item</th><th>Pack Size</th><th>Current Balance</th></tr></thead>

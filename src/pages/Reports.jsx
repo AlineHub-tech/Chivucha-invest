@@ -32,7 +32,7 @@ export default function Reports() {
   if (loading) {
     return (
       <div style={{ padding: '40px', textAlign: 'center', color: 'var(--primary-color)', fontWeight: '700' }}>
-        Streaming chronological transaction history logs from Chivucha MongoDB Cloud Node...
+        Loading Chivucha transaction reports...
       </div>
     );
   }
@@ -41,8 +41,8 @@ export default function Reports() {
     <div className="rep-page-fade">
       <div className="rep-page-header-row">
         <div>
-          <h2>Ecosystem Audits & Transaction Reports</h2>
-          <p>Comprehensive logging streaming of all warehouse operations dynamic metrics.</p>
+          <h2>Inventory Reports</h2>
+          <p>Review the history of stock received and products dispatched.</p>
         </div>
         <button className="rep-btn-download" onClick={handleDownloadPDF} disabled={logs.length === 0}>
           <Download size={16} /> Download PDF Report
@@ -52,11 +52,11 @@ export default function Reports() {
       <div className="rep-panel-card printable-area">
         <div className="rep-print-header">
           <h3>CHIVUCHA INVESTMENT LTD</h3>
-          <p>Official Inventory Operations & Audit Report Ledger</p>
+          <p>Official Chivucha Inventory Operations Report</p>
           <small>Generated on: {new Date().toLocaleString('en-RW', { timeZone: 'Africa/Kigali' })}</small>
         </div>
 
-        <h4>System Logs Balance Stream</h4>
+        <h4>Inventory Transaction History</h4>
         <div className="rep-table-responsive">
           <table className="rep-table">
             <thead>
@@ -73,7 +73,7 @@ export default function Reports() {
               {logs.length === 0 ? (
                 <tr>
                   <td colSpan="6" style={{ textAlign: 'center', color: '#64748b', padding: '32px' }}>
-                    No verified system transaction records present inside the database stream yet.
+                    No inventory transactions have been recorded yet.
                   </td>
                 </tr>
               ) : (

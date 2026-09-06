@@ -79,7 +79,7 @@ export default function StackIn() {
   };
 
   const executeDeleteCategory = async (catId, catName) => {
-    if (window.confirm(`⚠️ Erase "${catName}" and ALL products inside from MongoDB?`)) {
+    if (window.confirm(`⚠️ Delete "${catName}" and all products inside this category?`)) {
       try {
         await stockAPI.deleteCategory(catId);
         await loadDatabaseStock();
@@ -129,7 +129,7 @@ export default function StackIn() {
   };
 
   const executeDeleteProduct = async (prodId, prodName) => {
-    if (window.confirm(`Remove "${prodName}" from database?`)) {
+    if (window.confirm(`Remove "${prodName}" from inventory?`)) {
       try {
         await stockAPI.deleteProduct(prodId);
         await loadDatabaseStock();
@@ -139,14 +139,14 @@ export default function StackIn() {
       }
     }
   };
-  if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700', color: '#006400' }}>Streaming database records from MongoDB Atlas...</div>;
+  if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700', color: '#006400' }}>Loading Chivucha stock-in workspace...</div>;
 
       return (
     <div className="si-page-fade">
       <div className="si-page-header-row">
         <div>
-          <h2>Control Center Node</h2>
-          <p>Absolute CRUD panel for sectors and products synced live with MongoDB.</p>
+          <h2>Stock-In Management</h2>
+          <p>Organize product categories and record new inventory received by Chivucha.</p>
         </div>
         {canManageInventory && (
           <button className="si-btn-primary green-btn" onClick={() => setIsAddCatModalOpen(true)}>

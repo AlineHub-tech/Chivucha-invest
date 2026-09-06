@@ -51,7 +51,7 @@ export default function Dashboard() {
   if (loading) {
     return (
       <div style={{ padding: '40px', textAlign: 'center', color: 'var(--primary-color)', fontWeight: '700' }}>
-        Streaming secure ledger links from Chivucha MongoDB Cloud Node...
+        Loading Chivucha dashboard data...
       </div>
     );
   }
@@ -62,7 +62,7 @@ export default function Dashboard() {
       <div className="db-page-header-row">
         <div>
           <h2>Operational Command Center</h2>
-          <p>Real-time ecosystem metrics & workflow monitoring framework.</p>
+          <p>Live inventory performance and daily operations overview.</p>
         </div>
         <div className="db-system-clock-badge">
           <span className="pulse-dot"></span>
@@ -96,13 +96,13 @@ export default function Dashboard() {
         <div className="db-metric-card">
           <div className="db-metric-icon status"><Activity size={24} /></div>
           <div className="db-metric-info">
-            <span>Ecosystem Node Status</span>
-            <h3 style={{ color: '#006400' }}>SECURE LIVE</h3>
+            <span>Business Operations Status</span>
+            <h3 style={{ color: '#006400' }}>ACTIVE</h3>
           </div>
         </div>
       </div>
 
-      {/* 3. DYNAMIC BAR GRAPH CHART CONNECTED TO MONGO DB ATLAS */}
+      {/* 3. CATEGORY STOCK LEVEL CHART */}
       <div className="db-panel-card chart-container-block">
         <div className="db-panel-card-header">
           <h4>Category Stock Level Distribution Chart</h4>
@@ -128,25 +128,30 @@ export default function Dashboard() {
       {/* 4. WORKFLOW DOCUMENTATION & METRICS GUIDE */}
       <div className="db-grid-layout-split">
         <div className="db-panel-card">
-          <div className="db-guide-header"><HelpCircle size={20} /> <h4>How This Website Works</h4></div>
+          <div className="db-guide-header"><HelpCircle size={20} /> <h4>How the workflow works</h4></div>
+          <p className="db-panel-intro">The system is organized around four simple operational steps.</p>
           <div className="db-guide-steps">
             <div className="db-step-item">
-              <CheckCircle2 size={16} />
-              <p><strong>Stack-In Module:</strong> Connects live to MongoDB to configure clusters and register entries safely via verified JWT tokens.</p>
+              <span className="db-step-number">01</span><CheckCircle2 size={16} />
+              <p><strong>Stack-In:</strong> Create categories and register incoming products with quantity and price.</p>
             </div>
             <div className="db-step-item">
-              <CheckCircle2 size={16} />
-              <p><strong>Stack-Out Node:</strong> Updates document items collections simultaneously while logging transaction details to reports.</p>
+              <span className="db-step-number">02</span><CheckCircle2 size={16} />
+              <p><strong>Stack-Out:</strong> Dispatch stock only when enough quantity is available.</p>
             </div>
             <div className="db-step-item">
-              <CheckCircle2 size={16} />
-              <p><strong>Stock Ledger & Reports:</strong> Fetches historical data streams securely to allow instant analytical updates and clean PDF printing.</p>
+              <span className="db-step-number">03</span><CheckCircle2 size={16} />
+              <p><strong>Stock Ledger:</strong> Shows current quantities, inflow, outflow, and valuation.</p>
+            </div>
+            <div className="db-step-item">
+              <span className="db-step-number">04</span><CheckCircle2 size={16} />
+              <p><strong>Reports:</strong> Keeps a chronological audit trail for review and printing.</p>
             </div>
           </div>
         </div>
 
         <div className="db-panel-card">
-          <h4>Ecosystem Distribution Flow Volume</h4>
+          <h4>Inventory Movement Summary</h4>
           <div className="db-distribution-flow">
             <div className="db-flow-row">
               <span>Total Stack-In Load Trajectory</span>
@@ -157,7 +162,7 @@ export default function Dashboard() {
               <strong className="out">-{totalOutflowPcs.toLocaleString()} Pcs</strong>
             </div>
             <div className="db-flow-note">
-              Metrics are synced securely via real-time MongoDB transaction logs.
+              Stock movement totals from recorded Chivucha transactions.
             </div>
           </div>
         </div>

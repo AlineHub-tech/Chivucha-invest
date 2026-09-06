@@ -47,8 +47,8 @@ export default function Login() {
       <div className="lg-card">
         <div className="lg-card-header">
           <div className="lg-logo-icon"><ShieldCheck size={28} /></div>
-          <h3>Chivucha Terminal Gateway</h3>
-          <p>Provide secure authorization clearance keys to access database inventory networks.</p>
+          <h3>Chivucha Inventory</h3>
+          <p>Sign in to manage stock, sales movements, and inventory reports.</p>
         </div>
 
         {error && <div className="lg-error-message">{error}</div>}
@@ -85,12 +85,12 @@ export default function Login() {
           </div>
 
           <button type="submit" className="lg-submit-btn" disabled={loading}>
-            {loading ? 'Verifying Clearance...' : 'Authorize Node Access'}
+            {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
 
         <div className="lg-footer-notice">
-          <p>Authorized access points monitored securely by ByteFlow encryption systems.</p>
+          <p>Chivucha Investment Ltd inventory workspace.</p>
         </div>
       </div>
     </div>

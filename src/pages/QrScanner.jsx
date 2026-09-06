@@ -57,7 +57,7 @@ export default function QrScanner() {
         if (matchedProduct) {
           setScannedItem(matchedProduct);
         } else {
-          setScanError(`Code Scanned: "${decodedText}" but not matched in Chivucha Stock System database.`);
+          setScanError(`Code scanned: "${decodedText}" but no matching Chivucha product was found.`);
           setScannedItem(null);
         }
       },
@@ -75,12 +75,12 @@ export default function QrScanner() {
     };
   }, [stock]);
 
-  if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700' }}>Initializing camera decoder...</div>;
+  if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700' }}>Loading Chivucha QR scanner...</div>;
   return (
     <div className="qr-page-fade">
       <div className="qr-page-header">
         <h2>Live Hardware Camera Barcode Decoder</h2>
-        <p>Point your phone camera to any product QR/Barcode to stream real stock database balance parameters instantly.</p>
+        <p>Point your phone camera at a product QR code or barcode to view its Chivucha stock details.</p>
       </div>
 
       <div className="qr-shell-box">

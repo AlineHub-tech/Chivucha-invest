@@ -47,12 +47,12 @@ export default function Stock() {
 
     return { displayedIn, lastInDate, totalOut, lastOutDate, totalOutPrice };
   };
-  if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700' }}>Streaming stock ledger profiles...</div>;
+  if (loading) return <div style={{ padding: '40px', textAlign: 'center', fontWeight: '700' }}>Loading Chivucha stock ledger...</div>;
   return (
     <div className="st-page-fade">
       <div className="st-page-header">
-        <h2>Warehouse Unified Stock Ledger</h2>
-        <p>Live global tracking system mapping inflow entries, outflow dispatches, and total price valuations synced with MongoDB.</p>
+        <h2>Stock Overview</h2>
+        <p>Review available products, incoming stock, outgoing stock, and current value.</p>
       </div>
 
       {stock.map((cat) => (
