@@ -133,11 +133,11 @@ export default function Dashboard() {
           <div className="db-guide-steps">
             <div className="db-step-item">
               <span className="db-step-number">01</span><CheckCircle2 size={16} />
-              <p><strong>Stack-In:</strong> Create categories and register incoming products with quantity and price.</p>
+              <p><strong>Stock-In:</strong> Create categories and register incoming products with quantity and price.</p>
             </div>
             <div className="db-step-item">
               <span className="db-step-number">02</span><CheckCircle2 size={16} />
-              <p><strong>Stack-Out:</strong> Dispatch stock only when enough quantity is available.</p>
+              <p><strong>Stock-Out:</strong> Dispatch stock only when enough quantity is available.</p>
             </div>
             <div className="db-step-item">
               <span className="db-step-number">03</span><CheckCircle2 size={16} />
@@ -154,11 +154,11 @@ export default function Dashboard() {
           <h4>Inventory Movement Summary</h4>
           <div className="db-distribution-flow">
             <div className="db-flow-row">
-              <span>Total Stack-In Load Trajectory</span>
+              <span>Total Stock-In Load Trajectory</span>
               <strong className="in">+{totalInflowPcs.toLocaleString()} Pcs</strong>
             </div>
             <div className="db-flow-row">
-              <span>Total Stack-Out Sales Volume</span>
+              <span>Total Stock-Out Sales Volume</span>
               <strong className="out">-{totalOutflowPcs.toLocaleString()} Pcs</strong>
             </div>
             <div className="db-flow-note">
