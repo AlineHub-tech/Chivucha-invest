@@ -9,6 +9,7 @@
 .db-page-header-row h2 { font-size: 26px; font-weight: 800; color: #111111; margin: 0; letter-spacing: -0.02em; }
 .db-page-header-row p { margin: 0; color: #555555; font-size: 14.5px; }
 
+
 /* DYNAMIC CLOCK STYLING */
 .db-system-clock-badge { background: #ffffff; border: 1px solid rgba(0, 100, 0, 0.12); padding: 10px 16px; border-radius: 30px; display: inline-flex; align-items: center; gap: 10px; font-size: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
 .pulse-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3); animation: dbDotPulse 1.5s infinite; }

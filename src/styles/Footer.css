@@ -3,9 +3,9 @@
    ========================================================================== */
 
 .ch-footer-modern {
-  background-color: #111111; /* --dark-charcoal */
+  background: #0b1711;
   color: #94a3b8;
-  padding: 60px 0 24px 0;
+  padding: 52px 0 22px;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -69,8 +69,12 @@
   color: #94a3b8;
   margin: 0;
   max-width: 520px;
-  text-align: justify;
+  text-align: left;
 }
+
+.ch-footer-status { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; color: #7dd3a7; font-size: 12px; font-weight: 600; }
+.ch-footer-status-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.14); }
+.ch-footer-status-divider { width: 1px; height: 14px; background: rgba(255,255,255,0.16); margin: 0 4px; }
 
 /* Quick Directory Links Column Layout grid */
 .ch-footer-heading {
@@ -186,7 +190,11 @@
   border-radius: 4px;
   color: #64748b;
   font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
+.ch-node-badge svg { color: #4ade80; }
 
 .ch-credit-pill {
   color: #64748b;
@@ -251,4 +259,5 @@
   .ch-footer-links-grid { grid-template-columns: 1fr; }
   .ch-footer-text { text-align: left; }
   .ch-copyright-text { font-size: 12px; line-height: 1.45; }
+  .ch-footer-status { line-height: 1.5; }
 }
