@@ -246,3 +246,9 @@
     align-items: center;
   }
 }
+
+@media (max-width: 480px) {
+  .ch-footer-links-grid { grid-template-columns: 1fr; }
+  .ch-footer-text { text-align: left; }
+  .ch-copyright-text { font-size: 12px; line-height: 1.45; }
+}

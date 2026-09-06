@@ -28,15 +28,32 @@
   .st-group-card { padding: 16px; }
   .st-table, .st-table thead, .st-table tbody, .st-table th, .st-table td, .st-table tr { display: block; width: 100%; }
   .st-table thead { display: none; }
-  .st-table tr { background: #f8faf8; margin-bottom: 14px; padding: 14px; border: 1px solid #e2e8f0; border-radius: 12px; }
-  .st-table td { border-bottom: none; padding: 8px 0; display: flex; justify-content: space-between; align-items: flex-start; box-sizing: border-box; }
+  .st-table tr { background: #f8faf8; margin-bottom: 14px; padding: 14px 16px; border: 1px solid #e2e8f0; border-radius: 12px; }
+  .st-table td { border-bottom: 1px solid #e2e8f0; padding: 11px 0; display: grid; grid-template-columns: minmax(92px, 40%) minmax(0, 1fr); align-items: start; column-gap: 12px; box-sizing: border-box; }
+  .st-table td:last-child { border-bottom: none; }
   
   .st-table td:nth-of-type(1)::before { content: "Product Details:"; font-weight: 700; color: #64748b; }
   .st-table td:nth-of-type(2)::before { content: "Stack In Vol:"; font-weight: 700; color: #64748b; }
   .st-table td:nth-of-type(3)::before { content: "Stack Out Vol:"; font-weight: 700; color: #64748b; }
   .st-table td:nth-of-type(4)::before { content: "Total Out Price:"; font-weight: 700; color: #64748b; }
   
-  .st-table td { text-align: right; white-space: normal; }
-  .st-time-stamp { text-align: right; }
-  .st-item-sub-meta { text-align: right; }
+  .st-table td { text-align: right; white-space: normal; line-height: 1.4; }
+  .st-table td::before { align-self: start; text-align: left; font-size: 11px; line-height: 1.35; text-transform: uppercase; letter-spacing: 0.03em; }
+  .st-table td > * { min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+  .st-table td > strong { display: block; }
+  .st-time-stamp { text-align: right; line-height: 1.35; }
+  .st-item-sub-meta { text-align: right; line-height: 1.35; }
+}
+
+@media (max-width: 480px) {
+  .st-page-header h2 { font-size: 21px; }
+  .st-page-header p { line-height: 1.45; }
+  .st-group-header { align-items: flex-start; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+  .st-group-header h3 { font-size: 17px; }
+  .st-cat-badge { font-size: 11px; }
+  .st-table tr { padding: 10px 12px; }
+  .st-table td { grid-template-columns: minmax(84px, 38%) minmax(0, 1fr); column-gap: 10px; padding: 10px 0; }
+  .st-table td::before { font-size: 10px; }
+  .st-metric-flow { font-size: 13px; }
+  .st-price-valuation { font-size: 14px; }
 }

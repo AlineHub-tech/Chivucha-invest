@@ -197,6 +197,8 @@
 
 /* MOBILE RESPONSIVE ADAPTATION */
 @media (max-width: 576px) { 
+  .qr-page-header h2 { font-size: 21px; }
+  .qr-page-header p { line-height: 1.45; }
   .qr-shell-box { padding: 16px; gap: 16px; } 
   .qr-balance-badge h2 { font-size: 22px; }
   #qr-reader-live-engine button { padding: 10px 20px !important; font-size: 13px !important; }

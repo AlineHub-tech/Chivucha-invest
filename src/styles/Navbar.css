@@ -284,6 +284,33 @@
     background: var(--light-green-bg);
   }
 }
+
+@media (max-width: 640px) {
+  .nav-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 1.08rem;
+  }
+
+  .nav-logo-wrapper {
+    width: 40px !important;
+    height: 40px !important;
+    max-width: 40px !important;
+    max-height: 40px !important;
+  }
+
+  .nav-brand {
+    gap: 8px;
+    min-width: 0;
+  }
+}
 /* ==========================================================================
    🎯 USER PROFILE AREA STYLES FOR DESKTOP & MOBILE TRANSFORMATION
    ========================================================================== */

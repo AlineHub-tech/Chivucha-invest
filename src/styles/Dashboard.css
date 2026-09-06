@@ -66,3 +66,14 @@
   .db-chart-value { width: 100%; text-align: left; margin-top: 2px; }
   .db-panel-card { padding: 18px; }
 }
+
+@media (max-width: 480px) {
+  .db-page-header-row h2 { font-size: 21px; }
+  .db-page-header-row p { font-size: 13px; line-height: 1.45; }
+  .db-system-clock-badge { width: 100%; justify-content: center; font-size: 12px; }
+  .db-metrics-grid { grid-template-columns: 1fr; }
+  .db-metric-card { padding: 16px; }
+  .db-metric-info h3 { font-size: 16px; }
+  .db-flow-row { align-items: flex-start; gap: 12px; line-height: 1.4; }
+  .db-flow-row strong { white-space: nowrap; }
+}

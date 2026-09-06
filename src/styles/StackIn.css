@@ -147,3 +147,12 @@
   
   .si-crud-group { width: auto; justify-content: flex-end; }
 }
+
+@media (max-width: 480px) {
+  .si-page-header-row h2 { font-size: 21px; }
+  .si-page-header-row p { font-size: 13px; line-height: 1.45; }
+  .si-table td { gap: 12px; }
+  .si-table td::before { flex: 0 0 auto; }
+  .si-table td > * { min-width: 0; overflow-wrap: anywhere; }
+  .si-modal-card { padding: 20px 16px; }
+}

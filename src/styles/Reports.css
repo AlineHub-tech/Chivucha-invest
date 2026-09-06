@@ -128,6 +128,9 @@
 
 /* 📱 100% MOBILE RESPONSIVE ADAPTATION OVERRIDES */
 @media (max-width: 768px) {
+  .rep-page-header-row h2 { font-size: 21px; }
+  .rep-page-header-row p { line-height: 1.45; }
+  .rep-btn-download { width: 100%; justify-content: center; }
   .rep-panel-card { padding: 16px; }
   
   .rep-table, .rep-table thead, .rep-table tbody, .rep-table th, .rep-table td, .rep-table tr { 
