@@ -65,7 +65,7 @@ const Footer = () => {
           </div>
           
           <div className="ch-footer-credits-area">
-            <span className="ch-node-badge"><Circle size={8} fill="currentColor" /> Kigali Office</span>
+            <span className="ch-node-badge"><Circle size={8} fill="currentColor" />Profession Stock Management </span>
             <span className="ch-credit-pill">
               Engineered by <a href="https://byte-flow-ltd.vercel.app/" target="_blank" rel="noreferrer" className="ch-bf-credit-link">ByteFlow Ltd</a>
             </span>
