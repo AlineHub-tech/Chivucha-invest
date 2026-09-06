@@ -71,15 +71,15 @@ export default function Navbar() {
           </NavLink>
           
           <NavLink to="/stackin" className="nav-link" onClick={() => setIsOpen(false)}>
-            <div className="nav-link-main"><PlusCircle size={20} /> <span className="nav-link-title">Stack In / CRUD</span></div>
+            <div className="nav-link-main"><PlusCircle size={20} /> <span className="nav-link-title">StockIn </span></div>
           </NavLink>
           
           <NavLink to="/stackout" className="nav-link" onClick={() => setIsOpen(false)}>
-            <div className="nav-link-main"><MinusCircle size={20} /> <span className="nav-link-title">Stack Out</span></div>
+            <div className="nav-link-main"><MinusCircle size={20} /> <span className="nav-link-title">StockOut</span></div>
           </NavLink>
 
           <NavLink to="/stock" className="nav-link" onClick={() => setIsOpen(false)}>
-            <div className="nav-link-main"><Layers size={20} /> <span className="nav-link-title">Stock Ledger</span></div>
+            <div className="nav-link-main"><Layers size={20} /> <span className="nav-link-title">StockLedger</span></div>
           </NavLink>
           
           <NavLink to="/reports" className="nav-link" onClick={() => setIsOpen(false)}>
