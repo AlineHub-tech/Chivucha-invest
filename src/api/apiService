@@ -1,15 +1,15 @@
-import axios from 'axios';
-
-const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
-axios.defaults.withCredentials = true;
-
 const getCookie = (name) => {
   if (typeof document === 'undefined') return '';
   const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
   return match ? decodeURIComponent(match[1]) : '';
 };
 
-const resolveToken = () => getCookie('chivucha_jwt_token') || getCookie('chivucha_token');
+const resolveToken = () => {
+  const cookieToken = getCookie('chivucha_jwt_token') || getCookie('chivucha_token');
+  if (cookieToken) return cookieToken;
+  if (typeof window === 'undefined') return '';
+  return localStorage.getItem('chivucha_jwt_token') || '';
+};
 
 export const readSession = () => {
   const token = resolveToken();
@@ -21,64 +21,11 @@ export const readSession = () => {
     const decoded = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
     return {
       token,
-      username: decoded.username || getCookie('chivucha_user') || 'Guest',
-      role: decoded.role || getCookie('chivucha_role') || 'GUEST'
+      username: decoded.username || getCookie('chivucha_user') || localStorage.getItem('chivucha_logged_user') || 'Guest',
+      role: decoded.role || getCookie('chivucha_role') || localStorage.getItem('chivucha_user_role') || 'GUEST'
     };
   } catch (error) {
     return null;
   }
 };
 
-const getAuthHeader = () => {
-  const token = resolveToken();
-  return token ? { headers: { Authorization: `Bearer ${token}` } } : {};
-};
-
-export const authAPI = {
-  login: async (username, password) => {
-    const res = await axios.post(`${API_URL}/auth/login`, { username, password }, { withCredentials: true });
-    return res.data;
-  },
-  logout: async () => {
-    await axios.post(`${API_URL}/auth/logout`, {}, { withCredentials: true });
-  }
-};
-
-export const stockAPI = {
-  getAllStock: async () => {
-    const res = await axios.get(`${API_URL}/stock/all`);
-    return res.data;
-  },
-  addCategory: async (categoryName) => {
-    const res = await axios.post(`${API_URL}/stock/category/add`, { categoryName }, getAuthHeader());
-    return res.data;
-  },
-  updateCategory: async (catId, categoryName) => {
-    const res = await axios.put(`${API_URL}/stock/category/update/${catId}`, { categoryName }, getAuthHeader());
-    return res.data;
-  },
-  deleteCategory: async (catId) => {
-    const res = await axios.delete(`${API_URL}/stock/category/delete/${catId}`, getAuthHeader());
-    return res.data;
-  },
-  addProduct: async (catId, productForm) => {
-    const res = await axios.post(`${API_URL}/stock/product/add/${catId}`, productForm, getAuthHeader());
-    return res.data;
-  },
-  updateProduct: async (prodId, productForm) => {
-    const res = await axios.put(`${API_URL}/stock/product/update/${prodId}`, productForm, getAuthHeader());
-    return res.data;
-  },
-  deleteProduct: async (prodId) => {
-    const res = await axios.delete(`${API_URL}/stock/product/delete/${prodId}`, getAuthHeader());
-    return res.data;
-  },
-  stackOut: async (productId, quantity) => {
-    const res = await axios.post(`${API_URL}/stock/product/stackout`, { productId, quantity }, getAuthHeader());
-    return res.data;
-  },
-  getReports: async () => {
-    const res = await axios.get(`${API_URL}/reports/logs`);
-    return res.data;
-  }
-};

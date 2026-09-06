@@ -1,9 +1,15 @@
-import axiosInstance from './axiosInstance';
+import axios from 'axios';
+
+const API_BASE = import.meta.env.VITE_API_BASE || '/api';
+const API_URL = `${API_BASE.replace(/\/$/, '')}/auth`;
 
 export const authAPI = {
-  // Routes credentials securely straight to your live Render API cluster node
   login: async (username, password) => {
-    const res = await axiosInstance.post('/auth/login', { username, password });
-    return res.data; // Expected output payload: { token, username, role }
+    const res = await axios.post(`${API_URL}/login`, { username, password }, { withCredentials: true });
+    return res.data;
+  },
+  logout: async () => {
+    const res = await axios.post(`${API_URL}/logout`, {}, { withCredentials: true });
+    return res.data;
   }
 };
