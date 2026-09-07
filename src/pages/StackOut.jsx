@@ -82,7 +82,7 @@ export default function StackOut() {
             {currentSelectedProduct && (
               <div className="so-preview-box">
                 <p>Unit Price: <strong>{(Number(currentSelectedProduct.price) || 0).toLocaleString()} ZWM</strong></p>
-                <p>Total Dispatch Net Valuation: <strong style={{ color: '#006400' }}>{((Number(currentSelectedProduct.price) || 0) * form.quantity).toLocaleString()} RWF</strong></p>
+                <p>Total Dispatch Net Valuation: <strong style={{ color: '#006400' }}>{((Number(currentSelectedProduct.price) || 0) * form.quantity).toLocaleString()} ZWM</strong></p>
               </div>
             )}
 
