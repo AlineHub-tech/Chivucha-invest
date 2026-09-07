@@ -31,7 +31,7 @@ export default function Dashboard() {
 
     // Active Kigali live ticking clock engine running down to the second on viewports
     const timer = setInterval(() => {
-      setTime(new Date().toLocaleString('en-RW', { timeZone: 'Africa/Kigali' }));
+      setTime(new Date().toLocaleString('en-RW', { timeZone: 'Africa/Zambia' }));
     }, 1000);
 
     return () => clearInterval(timer);
@@ -83,14 +83,14 @@ export default function Dashboard() {
           <div className="db-metric-icon balance"><Layers size={24} /></div>
           <div className="db-metric-info">
             <span>Stock Net Valuation</span>
-            <h3>{totalValuation.toLocaleString()} RWF</h3>
+            <h3>{totalValuation.toLocaleString()} ZWM</h3>
           </div>
         </div>
         <div className="db-metric-card">
           <div className="db-metric-icon revenue"><TrendingUp size={24} /></div>
           <div className="db-metric-info">
             <span>Dispatched Outflow Value</span>
-            <h3>{totalSalesRevenue.toLocaleString()} RWF</h3>
+            <h3>{totalSalesRevenue.toLocaleString()} ZWM</h3>
           </div>
         </div>
         <div className="db-metric-card">
