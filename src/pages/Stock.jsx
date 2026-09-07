@@ -82,7 +82,7 @@ export default function Stock() {
                       <tr key={p._id}>
                         <td>
                           <strong>{p.name}</strong>
-                          <div className="st-item-sub-meta">Size: {p.size} | Unit: {(Number(p.price) || 0).toLocaleString()} RWF</div>
+                          <div className="st-item-sub-meta">Size: {p.size} | Unit: {(Number(p.price) || 0).toLocaleString()} ZWM</div>
                         </td>
                         <td>
                           <div className="st-metric-flow in">+{(Number(metrics.displayedIn) || 0).toLocaleString()} Pcs</div>
@@ -94,7 +94,7 @@ export default function Stock() {
                         </td>
                         <td>
                           <strong className="st-price-valuation">
-                            {(Number(metrics.totalOutPrice) || 0).toLocaleString()} RWF
+                            {(Number(metrics.totalOutPrice) || 0).toLocaleString()} ZWM
                           </strong>
                           <div className="st-item-sub-meta">Based on quantities</div>
                         </td>
