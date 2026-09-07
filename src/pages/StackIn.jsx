@@ -206,7 +206,7 @@ export default function StackIn() {
                       <td><span className="si-spec-badge">{p.size}</span></td>
                       <td>{p.details}</td>
                       <td><strong className="si-qty-count">{(Number(p.qty) || 0).toLocaleString()} Pcs</strong></td>
-                      <td>{(Number(p.price) || 0).toLocaleString()} RWF</td>
+                      <td>{(Number(p.price) || 0).toLocaleString()} ZWM</td>
                       <td>
                         {userRole === 'ADMIN' ? (
                           <div className="si-crud-group">
